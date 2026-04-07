@@ -1,145 +1,102 @@
-import { HashRouter, Routes, Route, Link } from "react-router-dom";
+import { HashRouter, Routes, Route, NavLink } from "react-router-dom";
+import "./styles.css";
 
 const whatsappLink =
   "https://wa.me/966537931357?text=Hi%20MASAR%2C%20I%20want%20to%20build%20a%20team%20in%20Egypt";
 
-const section = {
-  maxWidth: "1100px",
-  margin: "0 auto",
-  padding: "80px 20px",
-};
-
-const btn = {
-  background: "#0F172A",
-  color: "white",
-  padding: "14px 24px",
-  borderRadius: "10px",
-  textDecoration: "none",
-  display: "inline-block",
-  marginTop: "20px",
-};
-
-function Navbar() {
+function Header() {
   return (
-    <div style={{ display: "flex", justifyContent: "space-between", padding: "20px 40px", borderBottom: "1px solid #eee" }}>
-      <strong>MASAR</strong>
-      <div style={{ display: "flex", gap: "20px" }}>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/services">Services</Link>
-        <Link to="/faq">FAQ</Link>
-        <Link to="/contact">Contact</Link>
+    <>
+      <div className="topbar">
+        <div className="container">
+          <span>hello@masar.sa</span>
+          <span>Saudi Arabia + Egypt operational support</span>
+          <a href={whatsappLink} target="_blank">WhatsApp</a>
+        </div>
       </div>
-    </div>
+
+      <div className="navbar">
+        <div className="container nav-inner">
+          <div className="logo">
+            <div className="logo-box">M</div>
+            <div>
+              <strong>MASAR</strong>
+              <p>REMOTE WORKFORCE INFRASTRUCTURE</p>
+            </div>
+          </div>
+
+          <div className="nav-links">
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/services">Services</NavLink>
+            <NavLink to="/faq">FAQ</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
+          </div>
+
+          <button className="cta">Book a consultation</button>
+        </div>
+      </div>
+    </>
   );
 }
 
 function Home() {
   return (
-    <div>
-      <Navbar />
+    <>
+      <Header />
 
-      <section style={{ ...section, textAlign: "center" }}>
-        <h1 style={{ fontSize: "42px" }}>
-          Build your team with full operational support in Egypt — without the complexity of setting up locally.
-        </h1>
+      <div className="hero container">
+        <div className="hero-left">
+          <span className="tag">
+            Built for Saudi & GCC companies expanding into Egypt
+          </span>
 
-        <p style={{ marginTop: "20px", color: "#555" }}>
-          MASAR enables Saudi and GCC companies to build and operate teams in Egypt through a structured model.
-        </p>
+          <h1>
+            Build your Egypt team with a premium operating model, not operational guesswork.
+          </h1>
 
-        <a href={whatsappLink} target="_blank" style={btn}>
-          Start Building Your Team
-        </a>
-      </section>
+          <p>
+            MASAR enables Saudi and GCC companies to build and operate teams in Egypt through a structured model.
+          </p>
+        </div>
 
-      <section style={section}>
-        <h2>The Problem</h2>
-        <p>Hiring in Egypt without structure creates confusion, delays, and risk.</p>
-      </section>
+        <div className="hero-right">
+          <div className="card">
+            <h4>Expansion without operational chaos</h4>
+            <p>
+              Instead of building HR and payroll from zero, companies get a clearer route into Egypt.
+            </p>
+          </div>
 
-      <section style={section}>
-        <h2>The Solution</h2>
-        <p><strong>MASAR is infrastructure, not outsourcing.</strong></p>
-      </section>
+          <div className="card dark">
+            <h4>Saudi & GCC businesses</h4>
+            <p>Ideal for companies accessing Egyptian talent.</p>
+          </div>
 
-      <section style={section}>
-        <h2>How it Works</h2>
-        <ol>
-          <li>Understand needs</li>
-          <li>Design structure</li>
-          <li>Onboard team</li>
-          <li>Operate</li>
-          <li>Scale</li>
-        </ol>
-      </section>
-
-      <section style={{ ...section, textAlign: "center" }}>
-        <h2>Ready to build your team?</h2>
-        <a href={whatsappLink} target="_blank" style={btn}>
-          Contact MASAR
-        </a>
-      </section>
-    </div>
+          <div className="card">
+            <h4>More clarity</h4>
+            <p>Better structure and smoother operations.</p>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
 function About() {
-  return (
-    <div>
-      <Navbar />
-      <section style={section}>
-        <h1>About MASAR</h1>
-        <p>
-          MASAR builds the operational bridge between GCC companies and Egyptian talent.
-        </p>
-      </section>
-    </div>
-  );
+  return <div className="container page">About MASAR</div>;
 }
 
 function Services() {
-  return (
-    <div>
-      <Navbar />
-      <section style={section}>
-        <h1>Services</h1>
-        <ul>
-          <li>Employer of Record</li>
-          <li>Payroll & HR</li>
-          <li>Team Setup</li>
-        </ul>
-      </section>
-    </div>
-  );
+  return <div className="container page">Services</div>;
 }
 
 function FAQ() {
-  return (
-    <div>
-      <Navbar />
-      <section style={section}>
-        <h1>FAQ</h1>
-        <p>We help companies build and operate teams in Egypt.</p>
-      </section>
-    </div>
-  );
+  return <div className="container page">FAQ</div>;
 }
 
 function Contact() {
-  return (
-    <div>
-      <Navbar />
-      <section style={section}>
-        <h1>Contact</h1>
-        <p>crm.masar@gmail.com</p>
-        <p>00966537931357</p>
-        <a href={whatsappLink} target="_blank" style={btn}>
-          WhatsApp
-        </a>
-      </section>
-    </div>
-  );
+  return <div className="container page">Contact</div>;
 }
 
 export default function App() {
