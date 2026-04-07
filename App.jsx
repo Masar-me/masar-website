@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { HashRouter, Routes, Route, Link } from "react-router-dom";
 
 const whatsappLink =
   "https://wa.me/966537931357?text=Hi%20MASAR%2C%20I%20want%20to%20build%20a%20team%20in%20Egypt";
@@ -144,7 +144,7 @@ function Contact() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -152,6 +152,6 @@ export default function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
