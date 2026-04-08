@@ -1,33 +1,16 @@
-# MASAR Website
+# MASAR Final Exact Structure
 
-Production-ready Vite React starter for the MASAR website.
+Upload this project to GitHub exactly as-is and connect it to Vercel.
 
-## Setup
+## Files intentionally in root
+- index.html
+- package.json
+- vite.config.js
+- tailwind.config.js
+- postcss.config.js
+- vercel.json
 
-```bash
-npm install
-npm run dev
-```
-
-## Build
-
-```bash
-npm run build
-npm run preview
-```
-
-## Before Launch
-
-- Put the final MASAR logo in `public/masar-logo.png`
-- Replace the placeholder phone number in `src/App.jsx`
-- Replace the WhatsApp number in `src/App.jsx`
-- Confirm the FormSubmit destination email in `src/App.jsx`
-- If deploying behind static hosting, configure SPA fallback to `index.html`
-
-## Tech Stack
-
-- Vite
-- React
-- React Router
-- Framer Motion
-- Lucide React
+## Files intentionally in src
+- App.jsx
+- main.jsx
+- index.css
