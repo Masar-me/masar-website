@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Routes, Route, NavLink, Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -102,8 +102,8 @@ const packages = [
   },
 ];
 
-const faqs = [
- function FAQPage() {
+const faqs 
+ function FAQPage() 
 import { useState } from "react";
 
 function FAQPage() {
