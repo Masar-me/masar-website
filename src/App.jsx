@@ -103,12 +103,234 @@ const packages = [
 ];
 
 const faqs = [
-  { q: "What exactly does Masar do?", a: "Masar helps Saudi and GCC companies hire and operate employees in Egypt through a structured local operating model. This includes onboarding, contracts, payroll workflows, HR administration, and ongoing employee support." },
-  { q: "Is Masar a recruitment agency?", a: "Not in the traditional sense. Masar is positioned as a workforce infrastructure partner. Recruitment can be part of the journey, but the core value is in the operational structure around the employee after hiring." },
-  { q: "Who is this service best suited for?", a: "Masar is ideal for Saudi and GCC companies that want to build an Egypt-based team without creating the full administrative and employment structure on their own from day one." },
-  { q: "How is pricing usually structured?", a: "Masar can be priced as a setup fee, recruitment fee, monthly administration fee, and optional add-ons depending on scope and workforce structure." },
-  { q: "Can Masar support scaling later?", a: "Yes. The model is designed to start lean, then support expansion into a broader, more stable team structure as the client grows." },
-];
+ function FAQPage() {
+const [form, setForm] = useState({
+fullName: "",
+email: "",
+phone: "",
+country: "",
+city: "",
+role: "",
+yearsExperience: "",
+portfolioUrl: "",
+linkedinUrl: "",
+salaryExpectation: "",
+notes: "",
+});
+
+const [loading, setLoading] = useState(false);
+const [status, setStatus] = useState(null);
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycby3bySdld6xN_q_s9VlrWfN2FbjH0m-kASJVbgK-yOjiWppzSE-GxxpWTBM8StvjPc/exec";
+
+function handleChange(e) {
+const { name, value } = e.target;
+setForm((prev) => ({ ...prev, [name]: value }));
+}
+
+async function handleSubmit(e) {
+e.preventDefault();
+setLoading(true);
+setStatus(null);
+
+try {
+const res = await fetch(SCRIPT_URL, {
+method: "POST",
+headers: {
+"Content-Type": "text/plain;charset=utf-8",
+},
+body: JSON.stringify(form),
+});
+
+const result = await res.json();
+
+if (!result.success) {
+throw new Error(result.error || "Submission failed.");
+}
+
+setStatus({
+type: "success",
+message: `Submitted successfully. Score: ${result.ai?.score} | Decision: ${result.ai?.decision}`,
+});
+
+setForm({
+fullName: "",
+email: "",
+phone: "",
+country: "",
+city: "",
+role: "",
+yearsExperience: "",
+portfolioUrl: "",
+linkedinUrl: "",
+salaryExpectation: "",
+notes: "",
+});
+} catch (err) {
+setStatus({
+type: "error",
+message: err.message || "Something went wrong.",
+});
+} finally {
+setLoading(false);
+}
+}
+
+return (
+<div className="mx-auto max-w-3xl px-6 py-16 lg:px-8 lg:py-20">
+<SectionTitle
+eyebrow="Apply"
+title="Apply to MASAR Talent Network"
+desc="Share your profile, portfolio, and role preference. We review candidates for remote creative opportunities."
+/>
+
+<div
+className="mt-10 rounded-[28px] border bg-white p-6 shadow-[0_12px_40px_rgba(15,23,42,0.06)] lg:p-8"
+style={{ borderColor: brand.line }}
+>
+<form onSubmit={handleSubmit} className="grid gap-4">
+<input
+name="fullName"
+placeholder="Full Name"
+value={form.fullName}
+onChange={handleChange}
+required
+className="rounded-2xl border px-4 py-3 text-sm outline-none"
+style={{ borderColor: brand.line }}
+/>
+
+<input
+name="email"
+type="email"
+placeholder="Email"
+value={form.email}
+onChange={handleChange}
+required
+className="rounded-2xl border px-4 py-3 text-sm outline-none"
+style={{ borderColor: brand.line }}
+/>
+
+<input
+name="phone"
+placeholder="Phone"
+value={form.phone}
+onChange={handleChange}
+className="rounded-2xl border px-4 py-3 text-sm outline-none"
+style={{ borderColor: brand.line }}
+/>
+
+<div className="grid gap-4 md:grid-cols-2">
+<input
+name="country"
+placeholder="Country"
+value={form.country}
+onChange={handleChange}
+className="rounded-2xl border px-4 py-3 text-sm outline-none"
+style={{ borderColor: brand.line }}
+/>
+
+<input
+name="city"
+placeholder="City"
+value={form.city}
+onChange={handleChange}
+className="rounded-2xl border px-4 py-3 text-sm outline-none"
+style={{ borderColor: brand.line }}
+/>
+</div>
+
+<select
+name="role"
+value={form.role}
+onChange={handleChange}
+required
+className="rounded-2xl border px-4 py-3 text-sm outline-none"
+style={{ borderColor: brand.line }}
+>
+<option value="">Select Role</option>
+<option>Graphic Designer</option>
+<option>Brand Designer</option>
+<option>UI/UX Designer</option>
+<option>Motion Designer</option>
+<option>Art Director</option>
+<option>Creative Director</option>
+<option>Copywriter</option>
+<option>Content Creator</option>
+</select>
+
+<input
+name="yearsExperience"
+placeholder="Years of Experience"
+value={form.yearsExperience}
+onChange={handleChange}
+className="rounded-2xl border px-4 py-3 text-sm outline-none"
+style={{ borderColor: brand.line }}
+/>
+
+<input
+name="portfolioUrl"
+placeholder="Portfolio URL"
+value={form.portfolioUrl}
+onChange={handleChange}
+className="rounded-2xl border px-4 py-3 text-sm outline-none"
+style={{ borderColor: brand.line }}
+/>
+
+<input
+name="linkedinUrl"
+placeholder="LinkedIn URL"
+value={form.linkedinUrl}
+onChange={handleChange}
+className="rounded-2xl border px-4 py-3 text-sm outline-none"
+style={{ borderColor: brand.line }}
+/>
+
+<input
+name="salaryExpectation"
+placeholder="Salary Expectation"
+value={form.salaryExpectation}
+onChange={handleChange}
+className="rounded-2xl border px-4 py-3 text-sm outline-none"
+style={{ borderColor: brand.line }}
+/>
+
+<textarea
+name="notes"
+placeholder="Tell us about yourself"
+value={form.notes}
+onChange={handleChange}
+rows={5}
+className="rounded-2xl border px-4 py-3 text-sm outline-none"
+style={{ borderColor: brand.line }}
+/>
+
+<button
+type="submit"
+disabled={loading}
+className="inline-flex items-center justify-center rounded-2xl px-5 py-3 text-sm font-medium text-white transition hover:-translate-y-0.5 disabled:opacity-60"
+style={{ background: brand.primary }}
+>
+{loading ? "Submitting..." : "Submit Application"}
+</button>
+</form>
+
+{status && (
+<div
+className="mt-4 rounded-2xl px-4 py-3 text-sm"
+style={{
+background: status.type === "success" ? "#ECFDF5" : "#FEF2F2",
+color: status.type === "success" ? "#065F46" : "#991B1B",
+}}
+>
+{status.message}
+</div>
+)}
+</div>
+</div>
+);
+}
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
