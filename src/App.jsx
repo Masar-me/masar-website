@@ -103,10 +103,7 @@ const packages = [
 ];
 
 const faqs 
- function FAQPage() 
-import { useState } from "react";
-
-function FAQPage() {
+ function FAQPage() {
   const [form, setForm] = useState({
     fullName: "",
     email: "",
@@ -161,9 +158,7 @@ function FAQPage() {
 
       setStatus({
         type: "success",
-        message: `Submitted successfully. Score: ${
-          result.ai?.score ?? "N/A"
-        } | Decision: ${result.ai?.decision ?? "Pending"}`,
+        message: `Submitted successfully. Score: ${result.ai?.score ?? "N/A"} | Decision: ${result.ai?.decision ?? "Pending"}`,
       });
 
       setForm({
@@ -191,16 +186,20 @@ function FAQPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-16 lg:px-8 lg:py-20">
-      <SectionTitle
-        eyebrow="Apply"
-        title="Apply to MASAR Talent Network"
-        desc="Share your profile, portfolio, and role preference. We review candidates for remote creative opportunities."
-      />
+      <div className="mb-8 text-center">
+        <p className="mb-2 text-sm font-medium uppercase tracking-wider text-gray-500">
+          Apply
+        </p>
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+          Apply to MASAR Talent Network
+        </h1>
+        <p className="mt-3 text-base text-gray-600">
+          Share your profile, portfolio, and role preference. We review
+          candidates for remote creative opportunities.
+        </p>
+      </div>
 
-      <div
-        className="mt-10 rounded-[28px] border bg-white p-6 shadow-[0_12px_40px_rgba(15,23,42,0.06)] lg:p-8"
-        style={{ borderColor: brand.line }}
-      >
+      <div className="mt-10 rounded-[28px] border border-gray-200 bg-white p-6 shadow-[0_12px_40px_rgba(15,23,42,0.06)] lg:p-8">
         <form onSubmit={handleSubmit} className="grid gap-4">
           <input
             name="fullName"
@@ -209,8 +208,7 @@ function FAQPage() {
             value={form.fullName}
             onChange={handleChange}
             required
-            className="rounded-2xl border px-4 py-3 text-sm outline-none"
-            style={{ borderColor: brand.line }}
+            className="rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none"
           />
 
           <input
@@ -220,8 +218,7 @@ function FAQPage() {
             value={form.email}
             onChange={handleChange}
             required
-            className="rounded-2xl border px-4 py-3 text-sm outline-none"
-            style={{ borderColor: brand.line }}
+            className="rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none"
           />
 
           <input
@@ -230,8 +227,7 @@ function FAQPage() {
             placeholder="Phone"
             value={form.phone}
             onChange={handleChange}
-            className="rounded-2xl border px-4 py-3 text-sm outline-none"
-            style={{ borderColor: brand.line }}
+            className="rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none"
           />
 
           <div className="grid gap-4 md:grid-cols-2">
@@ -241,8 +237,7 @@ function FAQPage() {
               placeholder="Country"
               value={form.country}
               onChange={handleChange}
-              className="rounded-2xl border px-4 py-3 text-sm outline-none"
-              style={{ borderColor: brand.line }}
+              className="rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none"
             />
 
             <input
@@ -251,8 +246,7 @@ function FAQPage() {
               placeholder="City"
               value={form.city}
               onChange={handleChange}
-              className="rounded-2xl border px-4 py-3 text-sm outline-none"
-              style={{ borderColor: brand.line }}
+              className="rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none"
             />
           </div>
 
@@ -261,8 +255,7 @@ function FAQPage() {
             value={form.role}
             onChange={handleChange}
             required
-            className="rounded-2xl border px-4 py-3 text-sm outline-none"
-            style={{ borderColor: brand.line }}
+            className="rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none"
           >
             <option value="">Select Role</option>
             <option value="Graphic Designer">Graphic Designer</option>
@@ -281,8 +274,7 @@ function FAQPage() {
             placeholder="Years of Experience"
             value={form.yearsExperience}
             onChange={handleChange}
-            className="rounded-2xl border px-4 py-3 text-sm outline-none"
-            style={{ borderColor: brand.line }}
+            className="rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none"
           />
 
           <input
@@ -291,8 +283,7 @@ function FAQPage() {
             placeholder="Portfolio URL"
             value={form.portfolioUrl}
             onChange={handleChange}
-            className="rounded-2xl border px-4 py-3 text-sm outline-none"
-            style={{ borderColor: brand.line }}
+            className="rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none"
           />
 
           <input
@@ -301,8 +292,7 @@ function FAQPage() {
             placeholder="LinkedIn URL"
             value={form.linkedinUrl}
             onChange={handleChange}
-            className="rounded-2xl border px-4 py-3 text-sm outline-none"
-            style={{ borderColor: brand.line }}
+            className="rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none"
           />
 
           <input
@@ -311,8 +301,7 @@ function FAQPage() {
             placeholder="Salary Expectation"
             value={form.salaryExpectation}
             onChange={handleChange}
-            className="rounded-2xl border px-4 py-3 text-sm outline-none"
-            style={{ borderColor: brand.line }}
+            className="rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none"
           />
 
           <textarea
@@ -321,15 +310,13 @@ function FAQPage() {
             value={form.notes}
             onChange={handleChange}
             rows={5}
-            className="rounded-2xl border px-4 py-3 text-sm outline-none"
-            style={{ borderColor: brand.line }}
+            className="rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none"
           />
 
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex items-center justify-center rounded-2xl px-5 py-3 text-sm font-medium text-white transition hover:-translate-y-0.5 disabled:opacity-60"
-            style={{ background: brand.primary }}
+            className="inline-flex items-center justify-center rounded-2xl bg-black px-5 py-3 text-sm font-medium text-white transition hover:opacity-90 disabled:opacity-60"
           >
             {loading ? "Submitting..." : "Submit Application"}
           </button>
@@ -337,11 +324,11 @@ function FAQPage() {
 
         {status && (
           <div
-            className="mt-4 rounded-2xl px-4 py-3 text-sm"
-            style={{
-              background: status.type === "success" ? "#ECFDF5" : "#FEF2F2",
-              color: status.type === "success" ? "#065F46" : "#991B1B",
-            }}
+            className={`mt-4 rounded-2xl px-4 py-3 text-sm ${
+              status.type === "success"
+                ? "bg-green-50 text-green-800"
+                : "bg-red-50 text-red-800"
+            }`}
           >
             {status.message}
           </div>
@@ -350,7 +337,6 @@ function FAQPage() {
     </div>
   );
 }
-
 export default FAQPage;
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
