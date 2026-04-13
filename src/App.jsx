@@ -38,7 +38,7 @@ const company = {
   name: "MASAR",
   tagline: "Remote Workforce Infrastructure",
   email: "crm.masar@gmail.com",
-  phone: "00966537931357",
+  phone: "966537931357",
   whatsapp: "966537931357",
   location: "Saudi Arabia + Egypt operational support",
   logoPath: "/masar-logo.png",
@@ -49,7 +49,7 @@ const navItems = [
   { label: "About", path: "/about" },
   { label: "Services", path: "/services" },
   { label: "Packages", path: "/packages" },
-  { label: "FAQ", path: "/faq" },
+  { label: "Apply", path: "/faq" },
   { label: "Contact", path: "/contact" },
 ];
 
@@ -57,7 +57,7 @@ const services = [
   {
     icon: ShieldCheck,
     title: "Employer of Record Support",
-    desc: "Operate talent in Egypt through a structured employment model covering contracts, onboarding, compliance coordination, payroll administration, and employee support.",
+    desc: "Operate talent in Egypt through a structured employment model covering Hiring, contracts, onboarding, compliance coordination, payroll administration, and employee support.",
     bullets: ["Contract setup", "Onboarding coordination", "Compliance support", "Monthly employee administration"],
   },
   {
