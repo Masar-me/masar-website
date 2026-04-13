@@ -35,7 +35,7 @@ const brand = {
 const company = {
   name: "MASAR",
   tagline: "Remote Workforce Infrastructure",
-  email: "crm.masar@gmail.com",
+  email: "hello@masar-me.com",
   phone: "966537931357",
   whatsapp: "966537931357",
   location: "Saudi Arabia + Egypt operational support",
