@@ -29,8 +29,7 @@ import {
 const AIRTABLE_BASE_ID  = "apphDknbTzWaKgdJz";
 const AIRTABLE_API_KEY  = "pataIfI0SQGxuSdcG.66c607beac7ea575beaafcf8414f1b5df45f6d65be8a2c0e87963463fb7a5d36";
 const AIRTABLE_TABLE    = "CANDIDATES";
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby3bySdld6xN_q_s9VlrWfN2FbjH0m-kASJVbgK-yOjiWppzSE-GxxpWTBM8StvjPc/exec";
-
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw1GiQRLKJQr8eYJ8XWxbIRm6VcVmVZLjThOBX39-f7vUE35AyhtgM-2uO8k22Qzd4/exec";
 // ─────────────────────────────────────────────────────────────────────────────
 // AIRTABLE HELPER
 // ─────────────────────────────────────────────────────────────────────────────
