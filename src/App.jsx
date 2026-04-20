@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Routes, Route, NavLink, Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import {
   ArrowRight,
   Check,
@@ -749,6 +750,7 @@ function AppLayout() {
         <MessageCircle className="h-4 w-4" /> WhatsApp
       </a>
       <Footer />
+      <SpeedInsights />
     </div>
   );
 }
